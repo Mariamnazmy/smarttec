@@ -1,0 +1,25 @@
+
+.sidebar {
+    background-color: rgb(26, 26, 180);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; 
+  }
+  
+  .sidebar-icon {
+    padding: 20px;
+  }
+  
+  .content-area {
+    background-color: #f2f2f2;
+    border-radius: 30px; 
+    margin-left: 4.5rem; /* Adjust the margin to match the width of the sidebar (col-2) */
+    padding: 60px;
+    height: 100vh; 
+    position: fixed;
+     width: calc(100% - 4.5rem);  /*Calculate the width minus the sidebar's width  */
+  /* left: 4.5rem;  */
+  }
+  

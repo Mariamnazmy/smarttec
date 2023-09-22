@@ -1,0 +1,126 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-2 sidebar">
+      <div class="d-flex justify-content-center align-items-center sidebar-icon">
+        <img src="angular-icon.png" alt="Angular Icon">
+      </div>
+      Sidebar Content
+    </div>
+
+    <div class="col-10 content-area">
+      <h2>DashBoard</h2>
+
+      <div style="margin: 25px; margin-right: 250px;">
+        <!-- <h2 class=" justify-content-center align-items-center" style="background-color: white;color: blue;border-radius: 20px;">Personnel Add/Edit </h2> -->
+        <div class="d-grid gap-2">
+          <button style="height: 65px; background-color: white; border-radius: 20px; color: blue; border: 1px solid #000; font-size: 25px; font-weight: bold;" class="btn disabled" type="button">Personnel Add/Edit</button>
+        </div>
+        <div style="height: 500px; margin-top: 1px; background-color: white; border-radius: 15px; border: 1px solid #000;">
+          <!-- Example single danger button -->
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="btn-group" style="padding: 20px;">
+              <button style="background-color: white; width: 200px; height: 60px; font-weight: bold; color: rgb(174, 173, 173);" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ addEmployeereq.department || 'Department' }}
+              </button>
+              <ul class="dropdown-menu">
+            
+                <li><a class="dropdown-item" href="#"  (click)="selectDepartment('IT')">IT</a></li>
+                <li><a class="dropdown-item" href="#"  (click)="selectDepartment('Markteing')">Markteing</a></li>
+                
+                <li><a class="dropdown-item" href="#"  (click)="selectDepartment('Business')">Business</a></li>
+              </ul>
+            </div>
+
+            <div class="btn-group" style="padding: 20px;">
+              <button style="background-color: white; width: 200px; height: 60px; font-weight: bold; color: rgb(174, 173, 173);" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+              >
+              {{ addEmployeereq.job || 'Job' }}
+              </button>
+              <ul class="dropdown-menu">
+               
+                <li><a class="dropdown-item" href="#" (click)="selectJob('C# Developer')">C# Developer</a></li>
+                <li><a class="dropdown-item" href="#" (click)="selectJob('js developer')">js developer</a></li>
+                <li><a class="dropdown-item" href="#" (click)="selectJob('content creator')">content creator</a></li>
+                <li><a class="dropdown-item" href="#" (click)="selectJob('tester')">tester</a></li>
+                <li><a class="dropdown-item" href="#" (click)="selectJob('business analyst')">business analyst</a></li>
+              </ul>
+            </div>
+
+            <div class="btn-group" style="padding: 20px;">
+              <button style="background-color: white; width: 200px; height: 60px; font-weight: bold; color: rgb(174, 173, 173);" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ addEmployeereq.permissionGroup|| 'premission group'}}
+              </button>
+              <ul class="dropdown-menu">
+             
+                <li><a class="dropdown-item" href="#" (click)="selectGroup(1)">1</a></li>
+                <li><a class="dropdown-item" href="#" (click)="selectGroup(2)">2</a></li>
+                
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-body" >
+            <div *ngIf="employees && employees.length > 0">
+            <div class="row align-items-center pt-4 pb-1 " >
+              <div class="col-md-3 ps-5">
+                <h6 style="color: rgb(149, 3, 3); font-weight: bold;" class="mb-0">Full name</h6>
+              </div>
+              <div class="col-md-4 pe-5">
+                <div  >
+                <input style="border-radius: 15px; border: 1px solid #000;" type="text" class="form-control form-control-lg"
+                [(ngModel)]="employees[currentEmployeeIndex].name" />
+              </div>
+            </div>
+            </div>
+            <div class="row align-items-center py-1 " >
+              <div class="col-md-3 ps-5">
+                <h6 style="color: rgb(149, 3, 3); font-weight: bold;" class="mb-0">Mobile no.</h6>
+              </div>
+              <div class="col-md-4 pe-5">
+                <input style="border-radius: 15px; border: 1px solid #000;" type="text" class="form-control form-control-lg"
+                [(ngModel)]="employees[currentEmployeeIndex].phoneNumber" />
+              </div>
+            </div>
+            <div class="row align-items-center py-1">
+              <div class="col-md-3 ps-5">
+                <h6 style="color: rgb(149, 3, 3); font-weight: bold;" class="mb-0">Email address</h6>
+              </div>
+              <div class="col-md-4 pe-5">
+                <input style="border-radius: 15px; border: 1px solid #000;" type="email" class="form-control form-control-lg" 
+                [(ngModel)]="employees[currentEmployeeIndex].email" 
+                 />
+              </div>
+            </div>
+          </div>
+        </div>
+
+          
+          <div class="row mt-3 pl-md-5"  style="padding-left: 230px;">
+            <div class="col-6" >
+              <button type="button" style="width: 120px; color: #000; font-weight: bold; background-color: rgb(28, 131, 195); border-radius: 20px; border: 1px solid #000;" class="btn btn-primary  me-2" (click)="addEmployee()">Save</button>
+              <button type="button" style="width: 120px; color: #000; font-weight: bold; background-color: rgb(28, 131, 195); border-radius: 20px; border: 1px solid #000;" class="btn btn-primary  me-2" (click)="deleteEmployee(employees[currentEmployeeIndex].id)">Delete</button>
+              <button type="button"style="width: 120px; color: #000; font-weight: bold; background-color: rgb(28, 131, 195); border-radius: 20px; border: 1px solid #000;" class="btn btn-primary " (click)="updateEmployee()">Update</button>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-1 mt-5 me-1 ms-1" style="background-color: #f2f2f2; border: 1px solid lightgrey; ">
+            <div class="ps-5">
+            <button type="button" style="width: 150px; color: #ffffff; font-weight: bold; background-color: rgb(83, 216, 172); border-radius: 20px; border: 1px solid #ffffff;" class="btn btn-primary btn-lg " (click)="playPrevious()">Previous</button>
+          
+             <button type="button" style="right: 650px; margin-bottom: 100px; bottom: 100px; ; position: fixed; width: 150px;border-radius: 15px; border: 1px solid #000;" class="btn btn-primary btn-lg disabled"> {{currentEmployeeIndex}}</button> 
+          
+            <button type="button" style="right: 150px; position:fixed; width: 150px; color: #ffffff; font-weight: bold; background-color: rgb(83, 216, 172); border-radius: 20px; border: 1px solid #ffffff;" class="btn btn-primary btn-lg " (click)="playNext()">Next</button>
+          
+          </div>
+          
+           
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
