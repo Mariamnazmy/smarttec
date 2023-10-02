@@ -126,8 +126,8 @@ playPrevious(){
     return this.employees[index];
   }
   selectDepartment(department: string) {
-    this.addEmployeereq.department = department;
+   this.employees[this.currentEmployeeIndex].department=department;
   }
-  selectJob(job:string){this.addEmployeereq.job=job}
-  selectGroup(group:number){this.addEmployeereq.permissionGroup=group}
+  selectJob(job:string){this.employees[this.currentEmployeeIndex].job=job;}
+  selectGroup(group:number){this.employees[this.currentEmployeeIndex].permissionGroup=group;}
 }
