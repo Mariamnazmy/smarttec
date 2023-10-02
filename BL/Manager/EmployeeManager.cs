@@ -48,7 +48,9 @@ public class EmployeeManager : IEmployeeManager
         {
             Id= e.Id,
             Name= e.Name,
-
+            Department= e.Department,
+            Job = e.Job,
+            PermissionGroup = e.PermissionGroup,
             Email= e.Email,
             PhoneNumber= e.PhoneNumber,
         }).ToList();
